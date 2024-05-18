@@ -30,7 +30,7 @@ const AntdForm = () => {
   console.log(error);
   return (
     <>
-    {error && <div className="text-red-700">{error}</div>}
+      {error && <div className="text-red-600">{error}</div>}
       <Form
         name="basic"
         initialValues={{
@@ -94,6 +94,15 @@ const AntdForm = () => {
             login
           </Button>
         </Form.Item>
+
+        <div>
+          <Link
+            to="/update-password"
+            className="text-blue-800 hover:bg-slate-300 p-2 rounded-lg hover:text-blue-700"
+          >
+            Forgot password
+          </Link>
+        </div>
       </Form>
     </>
   );

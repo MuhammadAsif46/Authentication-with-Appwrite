@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import boyImage from "../../assets/boy.jpg";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { account } from "../../appwrite/appwriteConfig";
 
 const Profile = () => {
@@ -28,7 +28,7 @@ const Profile = () => {
 
   return (
     <>
-      {isLoggedIn ? (
+      {isLoggedIn && isLoggedIn ? (
         <>
           <h1 className="p-4 text-4xl text-white">Profile Page</h1>
           <div className="bg-white mx-auto gap-4 p-4 rounded-2xl w-[40%] flex flex-col justify-center items-center">
@@ -48,25 +48,17 @@ const Profile = () => {
               laboriosam ex nostrum.
             </p>
             <p className="text-xl">Hello {isLoggedIn.name}</p>
-            <div className="flex gap-3">
-              <button
-                className="btn btn-secondary rounded-full"
-                onClick={() => navigate("/update-password")}
-              >
-                Update Password
-              </button>
-              <button
-                className="btn btn-danger rounded-full"
-                onClick={logoutHandler}
-              >
-                Logout
-              </button>
-            </div>
+            <button
+              className="btn btn-danger rounded-full"
+              onClick={logoutHandler}
+            >
+              Logout
+            </button>
           </div>
         </>
       ) : (
         <div className="bg-white p-4">
-          <p className="mt-4">
+          <p>
             Please Login To see Profile{" "}
             <Link to="/">
               <span className="bg-blue-600 p-2 cursor-pointer text-white rounded-md">
