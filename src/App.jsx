@@ -1,12 +1,18 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import LoginPage from "./pages/LoginPage"
+import SignupPage from "./pages/SignupPage"
+import UpdatePasswordPage from "./pages/UpdatePasswordPage"
+import ProfilePage from "./pages/PorfilePage"
 
 function App() {
   return (
-    <>
-      <h1 className="text-3xl p-4 bg-slate-600 text-white">
-        Authentication with Appwrite
-      </h1>
-    </>
+    <Routes>
+      <Route path="/" element={<LoginPage/>}/>
+      <Route path="/signup" element={<SignupPage/>}/>
+      <Route path="/update-password" element={<UpdatePasswordPage/>}/>
+      <Route path="/profile" element={<ProfilePage/>}/>
+    </Routes>
   );
 }
 
