@@ -5,6 +5,10 @@ import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
 
+  const logoutHandler = () => {
+    console.log("hello");
+  }
+
   const navigate = useNavigate()
   return (
     <>
