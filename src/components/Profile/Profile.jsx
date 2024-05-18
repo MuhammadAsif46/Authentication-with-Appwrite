@@ -1,15 +1,28 @@
 import React from "react";
 import boyImage from "../../assets/boy.jpg";
 import { useNavigate } from "react-router-dom";
-
+import { account } from "../../appwrite/appwriteConfig";
 
 const Profile = () => {
+  const navigate = useNavigate();
 
-  const logoutHandler = () => {
+  const logoutHandler = async () => {
     console.log("hello");
-  }
 
-  const navigate = useNavigate()
+    const result = await account.deleteSession(
+      "current" // sessionId
+    );
+    // result.then(
+    //   function (response) {
+    //     console.log(response);
+    //     // navigate("/login");
+    //   },
+    //   function (error) {
+    //     console.log(error); // Failure
+    //   }
+    // );
+  };
+
   return (
     <>
       <h1 className="p-4 text-4xl text-white">Profile Page</h1>
@@ -30,10 +43,16 @@ const Profile = () => {
           ex nostrum.
         </p>
         <div className="flex gap-3">
-          <button className="btn btn-secondary rounded-full" onClick={() => navigate("/update-password")}>
+          <button
+            className="btn btn-secondary rounded-full"
+            onClick={() => navigate("/update-password")}
+          >
             Update Password
           </button>
-          <button className="btn btn-danger rounded-full" onClick={logoutHandler} >
+          <button
+            className="btn btn-danger rounded-full"
+            onClick={logoutHandler}
+          >
             Logout
           </button>
         </div>
