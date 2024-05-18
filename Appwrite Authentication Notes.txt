@@ -1,0 +1,82 @@
+Appwrite Basic Authentication Methods:
+
+1.Signup:
+
+import { Client, Account, ID } from "appwrite";
+
+const client = new Client()
+    .setEndpoint('https://cloud.appwrite.io/v1') // Your API Endpoint
+    .setProject('<PROJECT_ID>');               // Your project ID
+
+const account = new Account(client);
+
+const promise = account.create('[USER_ID]', 'email@example.com', '');
+
+promise.then(function (response) {
+    console.log(response); // Success
+}, function (error) {
+    console.log(error); // Failure
+});
+
+
+2.Login:
+
+import { Client, Account } from "appwrite";
+
+const client = new Client()
+    .setEndpoint('https://cloud.appwrite.io/v1') // Your API Endpoint
+    .setProject('<PROJECT_ID>');                 // Your project ID
+
+const account = new Account(client);
+
+const promise = account.createEmailSession('email@example.com', 'password');
+
+promise.then(function (response) {
+    console.log(response); // Success
+}, function (error) {
+    console.log(error); // Failure
+});
+
+
+3.Check user is authentic and Navigate authentic routes:
+
+try {
+    const user = await account.get();
+    // Logged in
+} catch (err) {
+    // Not logged in
+}
+
+
+4.Update password:
+
+import { Client, Account } from "appwrite";
+
+const client = new Client()
+    .setEndpoint('https://cloud.appwrite.io/v1') // Your API Endpoint
+    .setProject('5df5acd0d48c2'); // Your project ID
+
+const account = new Account(client);
+
+const result = await account.updatePassword(
+    '', // password
+    'password' // oldPassword (optional)
+);
+
+console.log(response);
+
+5.Logout user:
+
+import { Client, Account } from "appwrite";
+
+const client = new Client()
+    .setEndpoint('https://cloud.appwrite.io/v1') // Your API Endpoint
+    .setProject('5df5acd0d48c2'); // Your project ID
+
+const account = new Account(client);
+
+const result = await account.deleteSession(
+    '<SESSION_ID>' // sessionId
+);
+
+console.log(response);
