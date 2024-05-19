@@ -27,7 +27,6 @@ const AntdForm = () => {
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
-  console.log(error);
   return (
     <>
       {error && <div className="text-red-600">{error}</div>}
@@ -95,14 +94,14 @@ const AntdForm = () => {
           </Button>
         </Form.Item>
 
-        <div>
+        {/* <div>
           <Link
             to="/update-password"
-            className="text-blue-800 hover:bg-slate-300 p-2 rounded-lg hover:text-blue-700"
+            className="text-blue-800 hover:bg-slate-300 p-2 rounded-lg hover:text-b"
           >
             Forgot password
           </Link>
-        </div>
+        </div> */}
       </Form>
     </>
   );

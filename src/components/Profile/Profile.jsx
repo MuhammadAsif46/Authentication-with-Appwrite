@@ -48,12 +48,20 @@ const Profile = () => {
               laboriosam ex nostrum.
             </p>
             <p className="text-xl">Hello {isLoggedIn.name}</p>
-            <button
-              className="btn btn-danger rounded-full"
-              onClick={logoutHandler}
-            >
-              Logout
-            </button>
+            <div className="flex gap-4">
+              <button
+                className="btn btn-secondary rounded-full"
+                onClick={()=> navigate("/update-password")}
+              >
+                Update Password
+              </button>
+              <button
+                className="btn btn-danger rounded-full"
+                onClick={logoutHandler}
+              >
+                Logout
+              </button>
+            </div>
           </div>
         </>
       ) : (

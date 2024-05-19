@@ -20,7 +20,7 @@ const SignupForm = () => {
     promise.then(
       function (response) {
         console.log(response);
-        navigate("/profile");
+        navigate("/");
       },
       function (error) {
         console.log(error); // Failure
